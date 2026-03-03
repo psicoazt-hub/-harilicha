@@ -1,0 +1,11 @@
+:root { --color-marca: #d35400; --fondo: #ffffff; --texto: #333333; }
+@media (prefers-color-scheme: dark) { :root { --fondo: #121212; --texto: #ffffff; } }
+body { background: var(--fondo); color: var(--texto); font-family: sans-serif; text-align: center; margin: 0; padding: 10px; }
+.vista { display: none; }
+.activa { display: block; }
+input, button { width: 90%; padding: 15px; margin: 10px 0; border-radius: 8px; font-size: 16px; border: 1px solid #ccc; box-sizing: border-box; }
+.btn-azul { background: #3498db; color: white; }
+.btn-verde { background: #2ecc71; color: white; }
+.btn-rojo { background: #e74c3c; color: white; }
+.btn-naranja { background: #e67e22; color: white; }
+.btn-gris { background: #95a5a6; color: white; }

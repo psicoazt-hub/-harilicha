@@ -1,0 +1,9 @@
+{
+  "name": "Tortillas Licha",
+  "short_name": "LichaApp",
+  "start_url": "./index.html",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#d35400",
+  "icons": [{ "src": "logo.png", "sizes": "192x192", "type": "image/png" }]
+}

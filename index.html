@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tortillas Licha</title>
+    <link rel="stylesheet" href="estilos.css">
+    <link rel="manifest" href="manifest.json">
+    <script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-auth-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-database-compat.js"></script>
+    <script src="app.js"></script>
+</head>
+<body>
+    <div id="header">
+        <img src="logo.png" alt="Logo" width="100">
+        <small>by Antonio Zavala Tolentino</small>
+        <h2 id="titulo-usuario">Acceso</h2>
+        <p id="reloj"></p>
+    </div>
+
+    <div id="vista-login" class="vista activa">
+        <input type="text" id="email" placeholder="Usuario / Nombre">
+        <input type="password" id="pass" placeholder="Contraseña">
+        <button class="btn-azul" onclick="login()">ENTRAR</button>
+    </div>
+
+    <div id="vista-empleado" class="vista">
+        <button class="btn-verde" onclick="registrarEntrada()">Checar Entrada</button>
+        <button class="btn-azul" onclick="cambiarVista('vista-ventas')">Ventas</button>
+        <button class="btn-rojo" onclick="registrarSalida()">Cerrar Sesión</button>
+    </div>
+
+    <div id="vista-ventas" class="vista">
+        <div class="caja-inventario">
+            <label>Inventario:</label>
+            <input type="number" id="inv-diario" placeholder="Paquetes">
+            <button class="btn-verde" onclick="aceptarInventario()">Cargar</button>
+        </div>
+        <div id="punto-venta">
+            <input type="number" id="cant-vender" placeholder="Cantidad">
+            <input type="number" id="precio-paquete" placeholder="Precio ($)">
+            <button class="btn-azul" onclick="cerrarVenta()">Cobrar</button>
+        </div>
+        <button class="btn-gris" onclick="regresarAlMenu()">Volver</button>
+    </div>
+
+    <div id="vista-admin" class="vista">
+        <h3>Panel de Administración CEO</h3>
+        <button class="btn-azul" onclick="crearPerfil()">+ Crear Perfil Empleado</button>
+        <button class="btn-verde">Reportes de Inventario</button>
+        <button class="btn-naranja">Ver Asistencias</button>
+        <button class="btn-rojo" onclick="registrarSalida()">Cerrar Sesión</button>
+    </div>
+</body>
+</html>
