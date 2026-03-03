@@ -2,35 +2,46 @@
 <html lang="es">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tortillas Licha - Punto de Venta</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>LichassApp - Sistema de Ventas</title>
     <link rel="stylesheet" href="estilos.css">
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-database.js"></script>
 </head>
 <body>
-    <div id="login-screen" class="container">
+    <div class="marca-agua">PROPIEDAD DE LICHA</div>
+    <div id="reloj">Cargando...</div>
+    <h2 id="título-usuario">Identificación</h2>
+
+    <div id="vista-login" class="vista activa">
         <img src="logo.png" alt="Logo Licha" class="logo">
-        <h2>Acceso Administrativo</h2>
-        <input type="text" id="usuario" placeholder="Usuario (Admin)">
-        <input type="password" id="password" placeholder="Contraseña">
-        <button id="btnEntrar">ENTRAR</button>
-        <p id="mensajeError" style="color: red; display: none;">Datos incorrectos</p>
+        <input type="text" id="correo electrónico" placeholder="Usuario">
+        <input type="password" id="pasar" placeholder="Contraseña">
+        <button onclick="iniciarSesión()">ENTRAR</button>
     </div>
 
-    <div id="panel-ventas" class="container" style="display: none;">
-        <h2>Venta de Tortillas</h2>
-        <div class="info-precio">Precio por Kg: <strong id="precio-actual">$22.00</strong></div>
-        <input type="number" id="kilos" placeholder="Cantidad de Kilos" step="0.1">
-        <div class="total-venta">Total: <span id="total-pago">$0.00</span></div>
-        <button id="btnVender" style="background-color: #2e7d32;">REGISTRAR VENTA</button>
-        <button id="btnCerrar" style="background-color: #757575; margin-top: 10px;">Cerrar Sesión</button>
-        
-        <hr>
-        <h3>Inventario de Hoy</h3>
-        <p>Kilos producidos: <span id="inv-total">100</span> kg</p>
-        <p>Kilos vendidos: <span id="inv-vendido">0</span> kg</p>
+    <div id="vista-admin" class="vista">
+        <h3>Panel CEO</h3>
+        <div class="card">
+            <input type="number" id="inv-diario" placeholder="Cargar Inventario (Kg)">
+            <button onclick="aceptarInventario()">ACTUALIZAR INVENTARIO</button>
+        </div>
+        <button onclick="crearPerfil()">NUEVO EMPLEADO</button>
+        <button onclick="registrarSalida()" class="btn-gris">CERRAR SESIÓN</button>
+    </div>
+
+    <div id="vista-empleado" class="vista">
+        <div class="card">
+            <h3>Venta de Tortillas</h3>
+            <p>Precio: $22.00</p>
+            <input type="number" id="no puedo vender" placeholder="Kilos a vender" step="0.1">
+            <button onclick="cerrarVenta()">COBRAR Y REGISTRAR</button>
+            <button onclick="corregirVenta()" class="btn-naranja">CORREGIR ÚLTIMA VENTA</button>
+        </div>
+        <div class="inventario-v">Quedan: <span id="inv-actual">0</span> Kg</div>
+        <button onclick="registrarSalida()" class="btn-gris">SALIR</button>
     </div>
 
     <script src="app.js"></script>
 </body>
 </html>
-
